@@ -33,10 +33,10 @@ describe ErrorModule do
   end
   describe '#end_of_style_block' do
     it 'should return true' do
-      expect(start_of_style_block(end_style1)).totrue
+      expect(validator.end_of_style_block(end_style1)).to eql(true)
     end
     it 'should return false' do
-      expect(start_of_style_block(start_style1)).tofalse
+      expect(validator.end_of_style_block(start_style1)).to eql(false)
     end
   end
 end
