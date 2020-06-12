@@ -42,4 +42,12 @@ module ErrorModule
     puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Expecting 2 spaces before rule '
     arr << str
   end
+
+  def check_single_space_after_after_colon(str, indx, arr)
+    return unless style_between_block(str)
+    return true if str.match?(/.\s:\s./)
+
+    puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Expecting single spaces before rule'
+    arr << str
+  end
 end
