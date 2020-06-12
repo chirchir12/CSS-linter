@@ -31,4 +31,12 @@ describe ErrorModule do
       end
     end
   end
+  describe '#end_of_style_block' do
+    it 'should return true' do
+      expect(start_of_style_block(end_style1)).totrue
+    end
+    it 'should return false' do
+      expect(start_of_style_block(start_style1)).tofalse
+    end
+  end
 end
