@@ -39,4 +39,12 @@ describe ErrorModule do
       expect(validator.end_of_style_block(start_style1)).to eql(false)
     end
   end
+  describe '#style_between_block' do
+    it 'should return true' do
+      expect(validator.style_between_block(rule1)).to eql(true)
+    end
+    it 'it should return false' do
+      expect(validator.style_between_block(start_style1)).to eql(false)
+    end
+  end
 end

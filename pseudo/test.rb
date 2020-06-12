@@ -27,6 +27,7 @@
 
 #  def style_between_block(str)
 #    return true unless start_of_style_block?(str) || end_of_style_block?(str)
+# false
 #  end
 
 #  def check_missing_semi_colon(str, i, arr)
