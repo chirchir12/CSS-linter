@@ -1,7 +1,7 @@
 require 'colorize'
 require_relative '../lib/error.rb'
 describe ErrorModule do
-  let(:data) { ["#active {\n","color: aliceblue ;\n" ] } 
+  let(:data) { ["#active {\n", "color: aliceblue ;\n"] }
   let(:validator) { ErrorHandler.new(data) }
   let(:start_style1) { "#active {\n" }
   let(:start_style4) { ".active {\n" }
