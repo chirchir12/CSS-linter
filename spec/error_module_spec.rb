@@ -10,6 +10,7 @@ describe ErrorModule do
   let(:rule1) { "color : aliceblue;\n" }
   let(:rule5) { "color : aliceblue ;\n" }
   let(:rule6) { "color: aliceblue ;\n" }
+  let(:rule7) { "color: aliceblue ;   \n" }
   let(:rule4) { "color : aliceblue\n" }
   let(:rule2) { "background-color: #6688 ;    \n" }
   let(:rule3) { "  background-position-y: bottom;\n" }
@@ -95,6 +96,17 @@ describe ErrorModule do
     end
     it 'should add errors to the error array' do
       validator.check_single_space_after_after_colon(rule6, i, arr)
+      expect(!arr.empty?).to eql(true)
+    end
+  end
+  describe '#check_trailing_white_space' do
+    arr = []
+    i = 30
+    it 'should return true of no trailing white space' do
+      expect(validator.check_trailing_white_space(rule1, i, arr)).to eql(true)
+    end
+    it 'should add error to error array' do
+      validator.check_trailing_white_space(rule7, i, arr)
       expect(!arr.empty?).to eql(true)
     end
   end
