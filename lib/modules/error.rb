@@ -34,4 +34,12 @@ module ErrorModule
     puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Unexpected space before semicolon'
     arr << str
   end
+
+  def check_indentations(str, indx, arr)
+    return unless style_between_block(str)
+    return true if str.match?(/^(\s{2})+([a-zA-Z0-9\-_]+)/)
+
+    puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Expecting 2 spaces before rule '
+    arr << str
+  end
 end
