@@ -75,4 +75,15 @@ describe ErrorModule do
       expect(!arr.empty?).to eql(true)
     end
   end
+  describe '#check_indentations' do
+    arr = []
+    i = 40
+    it 'should return true when two single spaced passed' do
+      expect(validator.check_indentations(rule3, i, arr)).to eql(true)
+    end
+    it 'should add errors to the erray' do
+      validator.check_indentations(rule1, i, arr)
+      expect(!arr.empty?).to eql(true)
+    end
+  end
 end
