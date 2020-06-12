@@ -31,7 +31,7 @@ module ErrorModule
     return unless style_between_block(str)
     return true unless str.match?(/( ;)+/)
 
-    puts 'Error '.red + 'on' + " line:[:#{indx+1}:]".yellow + ' Unexpected space before semicolon'
+    puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Unexpected space before semicolon'
     arr << str
   end
 end
