@@ -26,4 +26,12 @@ module ErrorModule
     puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Missing ending semicolon '
     arr << str
   end
+
+  def check_space_before_semi_colon(str, indx, arr)
+    return unless style_between_block(str)
+    return true unless str.match?(/( ;)+/)
+
+    puts 'Error '.red + 'on' + " line:[:#{indx+1}:]".yellow + ' Unexpected space before semicolon'
+    arr << str
+  end
 end
