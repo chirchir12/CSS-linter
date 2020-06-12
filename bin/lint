@@ -1,1 +1,9 @@
 #! /usr/bin/env ruby
+require 'colorize'
+require_relative '../lib/error.rb'
+
+puts '******************************************'.blue
+puts '*                                         *'.green
+puts '           ' + 'CSS LINTER'.yellow + '      '.green
+puts '*                                         *'.green
+puts '******************************************'.blue
