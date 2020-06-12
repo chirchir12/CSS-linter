@@ -1,6 +1,7 @@
-require_relative '../lib/modules/error.rb'
+require_relative '../lib/error.rb'
 
 describe ErrorModule do
+  let(:validator) { ErrorHandler.new }
   let(:start_style1) { "#active {\n" }
   let(:start_style4) { ".active {\n" }
   let(:start_style2) { "li.active{\n" }
@@ -13,20 +14,20 @@ describe ErrorModule do
   describe '#start_of_style_block' do
     context 'when id is given ' do
       it 'should return true' do
-        expect(start_of_style_block(start_style1)).to eql(true)
+        expect(validator.start_of_style_block(start_style1)).to eql(true)
       end
     end
     context 'when class is given ' do
       it 'should return true' do
-        expect(start_of_style_block(start_style2)).to eql(true)
+        expect(validator.start_of_style_block(start_style2)).to eql(true)
       end
     end
     context 'when it is not start of rule ' do
       it 'should return false' do
-        expect(start_of_style_block(start_style3)).to eql(false)
+        expect(validator.start_of_style_block(start_style3)).to eql(false)
       end
       it 'should return false' do
-        expect(start_of_style_block(rule1)).to eql(false)
+        expect(validator.start_of_style_block(rule1)).to eql(false)
       end
     end
   end
