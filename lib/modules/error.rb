@@ -12,4 +12,10 @@ module ErrorModule
   def end_of_style_block(str)
     str.match?(/^\s*}\s*/) ? true : false
   end
+
+  def style_between_block(str)
+    return true unless start_of_style_block(str) || end_of_style_block(str)
+
+    false
+  end
 end
