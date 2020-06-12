@@ -8,6 +8,7 @@ describe ErrorModule do
   let(:start_style3) { 'chirchir' }
   let(:end_style1) { "}\n" }
   let(:rule1) { "color : aliceblue;\n" }
+  let(:rule4) { "color : aliceblue\n" }
   let(:rule2) { "background-color: #6688 ;    \n" }
   let(:rule3) { "  background-position-y: bottom;\n" }
 
@@ -45,6 +46,25 @@ describe ErrorModule do
     end
     it 'it should return false' do
       expect(validator.style_between_block(start_style1)).to eql(false)
+    end
+  end
+
+  describe '#check_missing_semi_colon' do
+    arr = []
+    i = 30
+    context 'when semicolon is present' do
+      it 'should return true' do
+        expect(validator.check_missing_semi_colon(rule1, i, arr)).to eql(true)
+      end
+    end
+    context 'when there is no semicolon ' do
+      it 'should print error' do
+        expect(validator.check_missing_semi_colon(rule4, i, arr)).to
+        output('Error '.red + 'on' + " line:[:#{i}:]".yellow + ' Missing ending semicolon ').to_stdout
+      end
+      it 'should add error to array' do
+        expect(arr > 0).to eql(true)
+      end
     end
   end
 end
