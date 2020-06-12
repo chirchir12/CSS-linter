@@ -7,3 +7,32 @@ puts '*                                         *'.green
 puts '           ' + 'CSS LINTER'.yellow + '      '.green
 puts '*                                         *'.green
 puts '******************************************'.blue
+puts
+puts 'checking for '.green + 'errors...'.red
+puts
+
+filepath = ARGV.first
+unless File.exist?(filepath)
+  puts 'no such file'
+  return
+end
+
+file_name = File.basename(filepath)
+
+if File.extname(file_name) != '.css'
+  puts 'this file is not css'
+  return
+end
+
+file = File.open(filepath)
+file_data = file.readlines
+
+validator = ErrorHandler.new(file_data)
+validator.display_errors
+puts
+if validator.error_count.zero?
+  puts 'No offence'.green + ' detected on file ' + file_name.blue
+else
+  puts validator.error_count.to_s.red + ' offences detected on ' + file_name.blue
+end
+puts
