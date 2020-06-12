@@ -8,6 +8,7 @@ describe ErrorModule do
   let(:start_style3) { 'chirchir' }
   let(:end_style1) { "}\n" }
   let(:rule1) { "color : aliceblue;\n" }
+  let(:rule5) { "color : aliceblue ;\n" }
   let(:rule4) { "color : aliceblue\n" }
   let(:rule2) { "background-color: #6688 ;    \n" }
   let(:rule3) { "  background-position-y: bottom;\n" }
@@ -48,7 +49,6 @@ describe ErrorModule do
       expect(validator.style_between_block(start_style1)).to eql(false)
     end
   end
-
   describe '#check_missing_semi_colon' do
     arr = []
     i = 30
@@ -62,6 +62,17 @@ describe ErrorModule do
         validator.check_missing_semi_colon(rule4, i, arr)
         expect(!arr.empty?).to eql(true)
       end
+    end
+  end
+  describe '#check_space_before_semi_colon' do
+    arr = []
+    i = 50
+    it 'should return true' do
+      expect(validator.check_space_before_semi_colon(rule1, i, arr)).to eql(true)
+    end
+    it 'should return true if there are errors' do
+      validator.check_space_before_semi_colon(rule5, i, arr)
+      expect(!arr.empty?).to eql(true)
     end
   end
 end
