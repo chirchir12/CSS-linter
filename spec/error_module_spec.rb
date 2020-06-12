@@ -1,5 +1,5 @@
+require 'colorize'
 require_relative '../lib/error.rb'
-
 describe ErrorModule do
   let(:validator) { ErrorHandler.new }
   let(:start_style1) { "#active {\n" }
@@ -58,12 +58,9 @@ describe ErrorModule do
       end
     end
     context 'when there is no semicolon ' do
-      it 'should print error' do
-        expect(validator.check_missing_semi_colon(rule4, i, arr)).to
-        output('Error '.red + 'on' + " line:[:#{i}:]".yellow + ' Missing ending semicolon ').to_stdout
-      end
       it 'should add error to array' do
-        expect(arr > 0).to eql(true)
+        validator.check_missing_semi_colon(rule4, i, arr)
+        expect(!arr.empty?).to eql(true)
       end
     end
   end

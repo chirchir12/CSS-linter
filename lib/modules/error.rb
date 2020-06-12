@@ -18,4 +18,12 @@ module ErrorModule
 
     false
   end
+
+  def check_missing_semi_colon(str, indx, arr)
+    return unless style_between_block(str)
+    return true if str.match?(/(.;.*)$/)
+
+    puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Missing ending semicolon '
+    arr << str
+  end
 end
