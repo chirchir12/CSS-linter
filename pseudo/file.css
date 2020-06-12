@@ -1,0 +1,74 @@
+#active {
+color : aliceblue;
+}
+
+#color {
+color: aliceblue;
+background-color: #6688 ;    
+  border: 50px;
+}
+li.active{
+  background-position-y: bottom;
+}
+
+.d-block {
+display: block ;
+}
+
+.d-grid {
+        display: grid;
+}
+
+.bg-primary {
+  background-color: #d84315; 
+  opacity: 0.9;
+}
+
+.text-align-center { 
+    text-align: center ;
+}
+
+.border-0 {
+  border: 0;
+}
+
+.p-07 {
+  padding: 0.5rem;
+}
+
+.visility-0 {
+  visibility : hidden;
+}
+
+.blue-text {
+  color: #1976d2;
+}
+
+.bg-blue-white-text {
+  background-color: #1976d2
+}
+
+.bg-grey-white-text {
+  background-color : #9e9e9e;
+}
+
+.bg-white-red-text {
+  background-color : #fff;
+}
+
+.bg-black {
+  background-color: #000
+}
+
+.bg-white-black-text {
+  color: #000;
+}
+
+.d-flex-vertical-center-column {
+  justify-content: center;
+  flex-direction: column
+}
+
+.d-flex-row {
+  display : flex;
+}
