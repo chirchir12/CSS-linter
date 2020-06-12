@@ -50,4 +50,13 @@ module ErrorModule
     puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Expecting single spaces before rule'
     arr << str
   end
+
+  def check_trailing_white_space(str, indx, arr)
+    if !str.match?(/(?<=\S)[\t ]+$/) || str.match?(/^\n$/)
+      true
+    else
+      puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Unexpected White spaces'
+      arr << str
+    end
+  end
 end
