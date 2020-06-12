@@ -9,6 +9,7 @@ describe ErrorModule do
   let(:end_style1) { "}\n" }
   let(:rule1) { "color : aliceblue;\n" }
   let(:rule5) { "color : aliceblue ;\n" }
+  let(:rule6) { "color: aliceblue ;\n" }
   let(:rule4) { "color : aliceblue\n" }
   let(:rule2) { "background-color: #6688 ;    \n" }
   let(:rule3) { "  background-position-y: bottom;\n" }
@@ -83,6 +84,17 @@ describe ErrorModule do
     end
     it 'should add errors to the erray' do
       validator.check_indentations(rule1, i, arr)
+      expect(!arr.empty?).to eql(true)
+    end
+  end
+  describe '#check_single_space_after_after_colon' do
+    arr = []
+    i = 5
+    it 'should true if there is single space after and before colon' do
+      expect(validator.check_single_space_after_after_colon(rule1, i, arr)).to eql(true)
+    end
+    it 'should add errors to the error array' do
+      validator.check_single_space_after_after_colon(rule6, i, arr)
       expect(!arr.empty?).to eql(true)
     end
   end
