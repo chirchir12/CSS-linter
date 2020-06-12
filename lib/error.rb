@@ -14,4 +14,8 @@ class ErrorHandler
     check_single_space_after_after_colon(str, idx, arr)
     check_trailing_white_space(str, idx, arr)
   end
+
+  def error_count
+    @error_arr.length
+  end
 end
