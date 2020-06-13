@@ -1,14 +1,14 @@
 #! /usr/bin/env ruby
 require 'colorize'
 require_relative '../lib/error.rb'
-
-puts '******************************************'.blue
-puts '*                                         *'.green
-puts '           ' + 'CSS LINTER'.yellow + '      '.green
-puts '*                                         *'.green
-puts '******************************************'.blue
 puts
-puts 'checking for '.green + 'errors...'.red
+puts '   ******************************************'.blue
+puts '   *                                         *'.green
+puts '              ' + 'CSS LINTER'.yellow + '      '.green
+puts '   *                                         *'.green
+puts '   ******************************************'.blue
+puts
+puts '   checking for '.green + 'errors...'.red
 puts
 
 filepath = ARGV.first
@@ -20,7 +20,7 @@ end
 file_name = File.basename(filepath)
 
 if File.extname(file_name) != '.css'
-  puts 'this file is not css'
+  puts '   this file is not css'
   return
 end
 
@@ -31,8 +31,8 @@ validator = ErrorHandler.new(file_data)
 validator.display_errors
 puts
 if validator.error_count.zero?
-  puts 'No offence'.green + ' detected on file ' + file_name.blue
+  puts '   No offence'.green + ' detected in file ' + file_name.blue
 else
-  puts validator.error_count.to_s.red + ' offences detected on ' + file_name.blue
+  puts validator.error_count.to_s.red + ' offences detected in ' + file_name.blue
 end
 puts

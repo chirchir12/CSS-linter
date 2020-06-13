@@ -23,7 +23,7 @@ module ErrorModule
     return unless style_between_block(str)
     return true if str.match?(/(.;.*)$/)
 
-    puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Missing ending semicolon '
+    puts '   Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Missing ending semicolon '
     arr << str
   end
 
@@ -31,7 +31,7 @@ module ErrorModule
     return unless style_between_block(str)
     return true unless str.match?(/( ;)+/)
 
-    puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Unexpected space before semicolon'
+    puts '   Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Unexpected space before semicolon'
     arr << str
   end
 
@@ -39,7 +39,7 @@ module ErrorModule
     return unless style_between_block(str)
     return true if str.match?(/^(\s{2})+([a-zA-Z0-9\-_]+)/)
 
-    puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Expecting 2 spaces before rule '
+    puts '   Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Expecting 2 spaces before rule '
     arr << str
   end
 
@@ -47,7 +47,7 @@ module ErrorModule
     return unless style_between_block(str)
     return true if str.match?(/.\s:\s./)
 
-    puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Expecting single spaces before rule'
+    puts '   Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Expecting single spaces before rule'
     arr << str
   end
 
@@ -55,7 +55,7 @@ module ErrorModule
     if !str.match?(/(?<=\S)[\t ]+$/) || str.match?(/^\n$/)
       true
     else
-      puts 'Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Unexpected White spaces'
+      puts '   Error '.red + 'on' + " line:[:#{indx + 1}:]".yellow + ' Unexpected White spaces'
       arr << str
     end
   end

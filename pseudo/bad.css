@@ -1,0 +1,12 @@
+.bg-black {
+    background-color:#000
+  }
+  
+  .bg-white-black-text {
+    color: #000;  
+  }
+  
+  .d-flex-vertical-center-column {
+    justify-content: center ;
+  flex-direction: column
+  }
