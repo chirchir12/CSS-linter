@@ -47,7 +47,7 @@ flex-direction: column
     1. Click on the install or download button under the repository name and grab the url
     by clicking on the clipboard icon
 
-![Step-1](images/github.png)
+![Step-1](images/down.png)
 
     2.open your terminal
 
