@@ -27,9 +27,9 @@ this is a CSS Linter developed in Ruby to help highlight sytle errors in CSS. It
 
     5. Press Enter. Your local clone will be created.
 
-    6. type ``` cd CSS-linter ```
-    7. run ``` bundle install ``` to install gem files
-    8. run ``` bin/lint path_to/file.css ```
+    6. type ` cd CSS-linter `
+    7. run ` bundle install ` to install gem files
+    8. run `bin/lint path_to/file.css `
 
 ## Developer Guide
 #### missing Semicolon
