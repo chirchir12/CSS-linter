@@ -1,11 +1,12 @@
 require_relative './modules/error.rb'
 class ErrorHandler
-  include ErrorModule
   attr_reader :error_arr, :data
   def initialize(data)
     @error_arr = []
     @data = data
   end
+
+  include ErrorModule
 
   def error_count
     @error_arr.length

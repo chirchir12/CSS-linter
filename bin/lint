@@ -1,37 +1,58 @@
 #! /usr/bin/env ruby
+
 require 'colorize'
 require_relative '../lib/error.rb'
-puts
-puts '   ******************************************'.blue
-puts '   *                                         *'.green
-puts '              ' + 'CSS LINTER'.yellow + '      '.green
-puts '   *                                         *'.green
-puts '   ******************************************'.blue
-puts
-puts '   checking for '.green + 'errors...'.red
-puts
-
-filepath = ARGV.first
-unless File.exist?(filepath)
-  puts 'no such file'
-  return
-end
-
-file_name = File.basename(filepath)
-
-puts '   this file is not css' if File.extname(file_name) != '.css'
-
-file = File.open(filepath)
-file_data = file.readlines
-
-validator = ErrorHandler.new(file_data)
-validator.process_errors
-puts
-if validator.error_count.zero?
-  puts '   No offence'.green + ' detected in file ' + file_name.blue
-else
-  validator.error_arr.each { |err| puts err }
+def header_message
   puts
-  puts validator.error_count.to_s.red + ' offences detected in ' + file_name.blue
+  puts '   ******************************************'.blue
+  puts '   *                                         *'.green
+  puts '              ' + 'CSS LINTER'.yellow + '      '.green
+  puts '   *                                         *'.green
+  puts '   ******************************************'.blue
+  puts
+  puts '   checking for '.green + 'errors...'.red
+  puts
 end
-puts
+
+def valid_file?(filepath)
+  return true if File.exist?(filepath)
+
+  false
+end
+
+def css?(name)
+  return false if File.extname(name) != '.css'
+
+  true
+end
+
+# rubocop:disable Metrics/MethodLength
+def init
+  filepath = ARGV.first
+  unless valid_file?(filepath)
+    puts 'file does not exist'
+    return
+  end
+  file_name = File.basename(filepath)
+  unless css?(file_name)
+    puts 'file is not css'
+    return
+  end
+  header_message
+  file = File.open(filepath)
+  file_data = file.readlines
+  validator = ErrorHandler.new(file_data)
+  validator.process_errors
+  puts
+  if validator.error_count.zero?
+    puts '   No offence'.green + ' detected in file ' + file_name.blue
+  else
+    validator.error_arr.each { |err| puts err }
+    puts
+    puts validator.error_count.to_s.red + ' offences detected in ' + file_name.blue
+  end
+  puts
+end
+# rubocop:enable Metrics/MethodLength
+
+init

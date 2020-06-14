@@ -2,14 +2,36 @@
 
 this is a CSS Linter developed in Ruby to help highlight sytle errors in CSS. It provides feedback when there are offences in the file. These offences include indentation, trailing white spaces, space before semi-colon, single space before and after colon, and missing semi colon. The linter print error and its corresponding line in the file.
 
+## Future Implementations
+- ability to fix linter errors
+- at the moment, it only checks rules on single line. future implementations include checking rules that span multiple lines
 ## Built With
 
 - Ruby-2.5.1p57
 - Rspec
 - colorize
 
+## Usage
 
-## User Guide
+    1. Click on the install or download button under the repository name and grab the url
+    by clicking on the clipboard icon
+
+
+    2.open your terminal
+
+    3.Navigate to the location in your computer where you want the repo to be cloned
+
+    4. Type git clone  and paste the url you copied on step one.
+
+        $ git clone https://github.com/chirchir12/CSS-linter.git
+
+    5. Press Enter. Your local clone will be created.
+
+    6. type ``` cd CSS-linter ```
+    7. run ``` bundle install ``` to install gem files
+    8. run ``` bin/lint path_to/file.css ```
+
+## Developer Guide
 #### missing Semicolon
 the following is considered violation
 ```
@@ -135,34 +157,12 @@ flex-direction: column
 
 ![screenshot](images/good.png)
 
-## How to Use
 
-1. From bin folder right click on the main file and select open with terminal option
-2. pass the path to the css file to the linter like so `lint assets/css/file.css`
 
-### How to install using Command line
 
-    1. Click on the install or download button under the repository name and grab the url
-    by clicking on the clipboard icon
+## Testing- Rspec
+- run ` rspec -fdoc` to see test passing all checks
 
-![Step-1](images/down.png)
-
-    2.open your terminal
-
-    3.Navigate to the location in your computer where you want the repo to be cloned
-
-    4. Type git clone  and paste the url you copied on step one.
-
-        $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-
-    5. Press Enter. Your local clone will be created.
-
-    6. move into the directory created
-    7. run ``` bundle install ``` to install dependencies
-    8. run ``` bin/lint path_to/file.css ```
-
-## Testing 
-- run ` bundle exec rspec` to see test passing all checks
 ![screenshot](images/test.png)
 ## Author
 
