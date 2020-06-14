@@ -13,23 +13,14 @@ this is a CSS Linter developed in Ruby to help highlight sytle errors in CSS. It
 
 ## Usage
 
-    1. Click on the install or download button under the repository name and grab the url
-    by clicking on the clipboard icon
-
-
-    2.open your terminal
-
-    3.Navigate to the location in your computer where you want the repo to be cloned
-
-    4. Type git clone  and paste the url you copied on step one.
-
-        $ git clone https://github.com/chirchir12/CSS-linter.git
-
-    5. Press Enter. Your local clone will be created.
-
-    6. type `cd CSS-linter `
-    7. run `bundle install ` to install gem files
-    8. run `bin/lint path_to/file.css `
+  1. Click on the install or download button under the repository name and grab the url
+  2.open your terminal
+  3.Navigate to the location in your computer where you want the repo to be cloned
+  4. type `git clone https://github.com/chirchir12/CSS-linter.git`
+  5. Press Enter. Your local clone will be created.
+  6. type `cd CSS-linter `
+  7. run `bundle install ` to install gem files
+  8. run `bin/lint path_to/file.css `
 
 ## Developer Guide
 #### missing Semicolon
