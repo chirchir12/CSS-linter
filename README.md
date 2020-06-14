@@ -158,11 +158,11 @@ flex-direction: column
     5. Press Enter. Your local clone will be created.
 
     6. move into the directory created
-    7. run `bundle install` to install dependencies
-    8. run `bin/lint path_to/file.css`
+    7. run ``` bundle install ``` to install dependencies
+    8. run ``` bin/lint path_to/file.css ```
 
 ## Testing 
-run ` bundle exec rspec` to see test passing all checks
+- run ` bundle exec rspec` to see test passing all checks
 ![screenshot](images/test.png)
 ## Author
 
